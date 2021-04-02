@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   login(): void {
-    this.router.navigate(['/login']);
+    this.router.navigate(['/monopolist/new']);
   }
 
   ngOnDestroy(): void {

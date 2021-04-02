@@ -1,0 +1,29 @@
+{
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "balance",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "is_bank",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "is_active",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [],
+  "service": "serviceClass",
+  "dto": "no",
+  "jpaMetamodelFiltering": false,
+  "readOnly": false,
+  "pagination": "no",
+  "name": "Monopolist",
+  "changelogDate": "20210402040000"
+}

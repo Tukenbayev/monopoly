@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity Transaction.
+    -->
+    <changeSet id="20210402040254-1" author="jhipster">
+        <createTable tableName="transaction">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="from_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+            <column name="to_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+            <column name="amount" type="bigint">
+                <constraints nullable="false" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+    </changeSet>
+
+    <changeSet id="20210402040254-2" author="jhipster">
+        <addForeignKeyConstraint baseTableName="transaction"
+                                 baseColumnNames="from_id"
+                                 constraintName="fx_key_transaction_from_id"
+                                 referencedTableName="monopolist"
+                                 referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="transaction"
+                                 baseColumnNames="to_id"
+                                 constraintName="fx_key_transaction_to_id"
+                                 referencedTableName="monopolist"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+
+</databaseChangeLog>

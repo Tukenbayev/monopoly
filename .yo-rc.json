@@ -41,6 +41,8 @@
     "jwtSecretKey": "NzRiY2I4NzQwNTQ1OTdmMTE5MjY3OTc1NGQwNmJlZDFmMTFjYjMyYjQzZTQ1MzY4YTAxZGQ3YmI4NzEwMTgyNTVmMzI3MTJjNmEyNThhNWZhYWEyNGY2Yzg2ZDk3Y2Q4Y2JiZjAyNzJiNjgxZjFkM2M0ODE1ZTM0NjExMmYxZDk=",
     "clientPackageManager": "npm",
     "clientThemeVariant": "",
-    "languages": ["en", "fr"]
+    "languages": ["en", "fr"],
+    "lastLiquibaseTimestamp": 1617336174000,
+    "entities": ["Monopolist", "Transaction"]
   }
 }

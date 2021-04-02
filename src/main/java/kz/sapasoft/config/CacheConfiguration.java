@@ -48,6 +48,8 @@ public class CacheConfiguration {
             createCache(cm, kz.sapasoft.domain.User.class.getName());
             createCache(cm, kz.sapasoft.domain.Authority.class.getName());
             createCache(cm, kz.sapasoft.domain.User.class.getName() + ".authorities");
+            createCache(cm, kz.sapasoft.domain.Monopolist.class.getName());
+            createCache(cm, kz.sapasoft.domain.Transaction.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

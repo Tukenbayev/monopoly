@@ -1,0 +1,67 @@
+<div class="row justify-content-center">
+  <div class="col-11">
+    <ul ngbNav [(activeId)]="activeId" class="nav-tabs">
+      <li [ngbNavItem]="1">
+        <a ngbNavLink>{{ monopolist?.name }}</a>
+      </li>
+      <li [ngbNavItem]="2">
+        <a ngbNavLink>Отправить</a>
+      </li>
+    </ul>
+    <div class="card" [hidden]="activeId == 2">
+      <div style="text-align: center; vertical-align: center; padding-top: 30px; padding-bottom: 30px; font-size: 20px">
+        {{ monopolist?.balance | currency: 'USD' }}
+      </div>
+    </div>
+    <div class="card" [hidden]="activeId == 2" style="padding-top: 10px; padding-left: 10px">
+      <h6>Транзакции:</h6>
+      <div style="margin-top: 2px; margin-bottom: 2px" *ngFor="let i of monopolist?.transactions">
+        <div style="display: inline-block; width: 45%">{{ i.from_id === monopolist?.id ? i.to_name : i.from_name }}</div>
+        <div style="display: inline-block; width: 45%; text-align: right">
+          {{ i.from_id === monopolist?.id ? '-' : '+' }}{{ i.amount | currency: 'USD' }}
+        </div>
+      </div>
+    </div>
+    <div [hidden]="activeId == 1">
+      <div style="text-align: center; margin-top: 15px; margin-bottom: 15px; font-size: 16px">
+        <select [(ngModel)]="toPlayer" style="width: 100%">
+          <option *ngFor="let p of players" [ngValue]="p">{{ p.name }}</option>
+        </select>
+      </div>
+      <div style="text-align: center; margin-top: 15px; margin-bottom: 15px; font-size: 20px">{{ amount | currency: 'USD' }}</div>
+      <div class="row">
+        <div class="col-6" (click)="multiply(1000000)" style="text-align: center; padding: 25px; border: 1px solid lightgrey">M</div>
+        <div class="col-6" (click)="multiply(1000)" style="text-align: center; padding: 25px; border: 1px solid lightgrey">K</div>
+      </div>
+      <div class="row" style="margin-top: 3px">
+        <div class="col-4" (click)="clickNumber('7')" style="text-align: center; padding: 25px; border: 1px solid lightgrey">7</div>
+        <div class="col-4" (click)="clickNumber('8')" style="text-align: center; padding: 25px; border: 1px solid lightgrey">8</div>
+        <div class="col-4" (click)="clickNumber('9')" style="text-align: center; padding: 25px; border: 1px solid lightgrey">9</div>
+      </div>
+      <div class="row" style="margin-top: 3px">
+        <div class="col-4" (click)="clickNumber('4')" style="text-align: center; padding: 25px; border: 1px solid lightgrey">4</div>
+        <div class="col-4" (click)="clickNumber('5')" style="text-align: center; padding: 25px; border: 1px solid lightgrey">5</div>
+        <div class="col-4" (click)="clickNumber('6')" style="text-align: center; padding: 25px; border: 1px solid lightgrey">6</div>
+      </div>
+      <div class="row" style="margin-top: 3px">
+        <div class="col-4" (click)="clickNumber('1')" style="text-align: center; padding: 25px; border: 1px solid lightgrey">1</div>
+        <div class="col-4" (click)="clickNumber('2')" style="text-align: center; padding: 25px; border: 1px solid lightgrey">2</div>
+        <div class="col-4" (click)="clickNumber('3')" style="text-align: center; padding: 25px; border: 1px solid lightgrey">3</div>
+      </div>
+      <div class="row" style="margin-top: 3px">
+        <div class="col-4" (click)="drop()" style="text-align: center; padding: 25px; border: 1px solid lightgrey">C</div>
+        <div class="col-4" (click)="clickNumber('0')" style="text-align: center; padding: 25px; border: 1px solid lightgrey">0</div>
+        <div class="col-4" (click)="clickNumber('.')" style="text-align: center; padding: 25px; border: 1px solid lightgrey">.</div>
+      </div>
+      <div class="row" style="margin-top: 3px">
+        <div
+          (click)="sendMoney()"
+          class="col-12"
+          style="text-align: center; padding: 25px; border: 1px solid lightgrey; background-color: lightblue"
+        >
+          Отправить
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

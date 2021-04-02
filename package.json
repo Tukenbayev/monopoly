@@ -100,6 +100,7 @@
     "@types/sockjs-client": "1.5.0",
     "@typescript-eslint/eslint-plugin": "4.18.0",
     "@typescript-eslint/parser": "4.18.0",
+    "ajv": "^7.2.4",
     "browser-sync": "2.26.14",
     "browser-sync-webpack-plugin": "2.3.0",
     "concurrently": "6.0.0",

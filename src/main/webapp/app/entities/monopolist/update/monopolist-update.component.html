@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+  <div class="col-11">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-monopolist-heading" data-cy="MonopolistCreateUpdateHeading">Заполните</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group">
+          <label class="form-control-label" for="field_id">Номер</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" for="field_name">Имя</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+          <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('name')?.errors?.required"> This field is required. </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" for="field_is_bank">Играть за Банк</label>
+          <input type="checkbox" class="form-check" name="is_bank" id="field_is_bank" data-cy="is_bank" formControlName="is_bank" />
+        </div>
+      </div>
+
+      <div style="margin-bottom: 20px">
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-block btn-outline-secondary"
+        >
+          <span>Поехали</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
